@@ -13,10 +13,22 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/test', (req, res) => {
-    res.json({
-        msg: "Hello Test"
-    })
+router.get('/login/:username/:password', (req, res) => {
+
+    const { username, password } = req.params;
+    console.log(username, password);
+
+    if (username == "mujeeb" && password == "123456789") {
+        res.json({
+            message: "Auth validated",
+            token: "akmdaslala_akmlamklam_kmkakjakj_klamklaalmlka_klamkdsakja j"
+        })
+    } else {
+        res.json({
+            message: "Auth failed",
+            token: ""
+        })
+    }
 })
 
 
