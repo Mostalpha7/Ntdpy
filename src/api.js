@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
 })
 
 router.get('/login/:username/:password', (req, res) => {
-
     const { username, password } = req.params;
     console.log(username, password);
 
@@ -22,11 +21,35 @@ router.get('/login/:username/:password', (req, res) => {
         res.json({
             message: "Auth validated",
             token: "akmdaslala_akmlamklam_kmkakjakj_klamklaalmlka_klamkdsakjaj",
-            user_id:"akdskaldsma",
+            user_id: "akdskaldsma",
         })
     } else {
         res.status(400).json({
-            error: "Auth failed",
+            error: "Login failed",
+        })
+    }
+})
+
+router.post('/register', (req, res) => {
+    const {
+        fullName,
+        phoneNumber,
+        email,
+        state,
+        address,
+        dateOfBirth,
+        password,
+    } = req.body;
+
+    if (fullName == "Mustapha") {
+        res.json({
+            message: "Auth validated",
+            token: "akmdaslala_akmlamklam_kmkakjakj_klamklaalmlka_klamkdsakjaj",
+            user_id: "akdskaldsma",
+        })
+    } else {
+        res.status(400).json({
+            error: "Failed saving data failed",
         })
     }
 })
