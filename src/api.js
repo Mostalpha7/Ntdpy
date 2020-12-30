@@ -1,8 +1,15 @@
 const express = require('express');
 const serverless = require('serverless-http');
-
-
 const app = express();
+const bodyParser = require("body-parser");
+
+
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 
 const router = express.Router();
@@ -13,9 +20,8 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/login/:username/:password', (req, res) => {
-    const { username, password } = req.params;
-    console.log(username, password);
+router.post('/login', (req, res) => {
+    const { username, password } = req.body;
 
     if (username == "mujeeb" && password == "123456789") {
         res.json({
@@ -31,19 +37,11 @@ router.get('/login/:username/:password', (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-    const {
-        fullName,
-        phoneNumber,
-        email,
-        state,
-        address,
-        dateOfBirth,
-        password,
-    } = req.body;
+    const { fullName } = req.body;
 
     if (fullName == "Mustapha") {
         res.json({
-            message: "Auth validated",
+            message: "Registration validated",
             token: "akmdaslala_akmlamklam_kmkakjakj_klamklaalmlka_klamkdsakjaj",
             user_id: "akdskaldsma",
         })
