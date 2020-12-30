@@ -21,9 +21,9 @@ router.get('/', (req, res) => {
 })
 
 router.post('/login', (req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    if (username == "mujeeb" && password == "123456789") {
+    if (email == "mujeeb@g" && password == "123456789") {
         res.json({
             message: "Auth validated",
             token: "akmdaslala_akmlamklam_kmkakjakj_klamklaalmlka_klamkdsakjaj",
