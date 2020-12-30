@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 router.post('/login', (req, res) => {
     const { email, password } = req.body;
 
-    if (email == "mujeeb@g" && password == "123456789") {
+    if (email == "mujeeb@gmail.com" && password == "123456789") {
         res.json({
             message: "Auth validated",
             token: "akmdaslala_akmlamklam_kmkakjakj_klamklaalmlka_klamkdsakjaj",
