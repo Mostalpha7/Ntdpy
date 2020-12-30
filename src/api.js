@@ -21,12 +21,12 @@ router.get('/login/:username/:password', (req, res) => {
     if (username == "mujeeb" && password == "123456789") {
         res.json({
             message: "Auth validated",
-            token: "akmdaslala_akmlamklam_kmkakjakj_klamklaalmlka_klamkdsakja j"
+            token: "akmdaslala_akmlamklam_kmkakjakj_klamklaalmlka_klamkdsakjaj",
+            user_id:"akdskaldsma",
         })
     } else {
-        res.json({
-            message: "Auth failed",
-            token: ""
+        res.status(400).json({
+            error: "Auth failed",
         })
     }
 })
